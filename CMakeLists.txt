@@ -903,6 +903,13 @@ elseif(ANDROID)
     set(HAVE_SDL_JOYSTICK TRUE)
   endif()
 
+  if(SDL_FILESYSTEM)
+    set(SDL_FILESYSTEM_ANDROID 1)
+    file(GLOB FILESYSTEM_SOURCES ${SDL2_SOURCE_DIR}/src/filesystem/android/*.c)
+    set(SOURCE_FILES ${SOURCE_FILES} ${FILESYSTEM_SOURCES})
+    set(HAVE_SDL_FILESYSTEM TRUE)
+  endif()
+
 elseif(WINDOWS)
   find_program(WINDRES windres)
 
