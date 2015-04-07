@@ -890,6 +890,9 @@ elseif(ANDROID)
   file(GLOB CORE_SOURCES ${SDL2_SOURCE_DIR}/src/core/android/*.c)
   set(SOURCE_FILES ${SOURCE_FILES} ${CORE_SOURCES})
 
+  file(GLOB MAIN_SOURCES ${SDL2_SOURCE_DIR}/src/main/android/*.c)
+  set(SOURCE_FILES ${SOURCE_FILES} ${MAIN_SOURCES})
+
   if(SDL_AUDIO)
     set(SDL_AUDIO_DRIVER_ANDROID 1)
     file(GLOB ANDROID_AUDIO_SOURCES ${SDL2_SOURCE_DIR}/src/audio/android/*.c)
