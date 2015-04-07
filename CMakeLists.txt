@@ -888,6 +888,7 @@ elseif(UNIX AND NOT APPLE)
 
 elseif(ANDROID)
   file(GLOB CORE_SOURCES ${SDL2_SOURCE_DIR}/src/core/android/*.c)
+  set(SOURCE_FILES ${SOURCE_FILES} ${CORE_SOURCES})
 
   if(SDL_AUDIO)
     set(SDL_AUDIO_DRIVER_ANDROID 1)
