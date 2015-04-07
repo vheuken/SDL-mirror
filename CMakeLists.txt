@@ -886,6 +886,14 @@ elseif(UNIX AND NOT APPLE)
     set(HAVE_RPATH TRUE)
   endif()
 
+elseif(ANDROID)
+  if(SDL_AUDIO)
+    set(SDL_AUDIO_DRIVER_ANDROID 1)
+    file(GLOB ANDROID_AUDIO_SOURCES ${SDL2_SOURCE_DIR}/src/audio/android/*.c)
+    set(SOURCE_FILES ${SOURCE_FILES} ${ANDROID_AUDIO_SOURCES})
+    set(HAVE_SDL_AUDIO TRUE)
+  endif()
+
 elseif(WINDOWS)
   find_program(WINDRES windres)
 
