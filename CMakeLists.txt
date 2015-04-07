@@ -896,6 +896,13 @@ elseif(ANDROID)
     set(HAVE_SDL_AUDIO TRUE)
   endif()
 
+  if(SDL_JOYSTICK)
+    set(SDL_JOYSTICK_LINUX 1)
+    file(GLOB JOYSTICK_SOURCES ${SDL2_SOURCE_DIR}/src/joystick/android/*.c)
+    set(SOURCE_FILES ${SOURCE_FILES} ${JOYSTICK_SOURCES})
+    set(HAVE_SDL_JOYSTICK TRUE)
+  endif()
+
 elseif(WINDOWS)
   find_program(WINDRES windres)
 
