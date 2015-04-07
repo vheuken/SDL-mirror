@@ -910,6 +910,13 @@ elseif(ANDROID)
     set(HAVE_SDL_FILESYSTEM TRUE)
   endif()
 
+  if(SDL_VIDEO)
+    set(SDL_VIDEO_DRIVER_ANDROID 1)
+    file(GLOB VIDEO_ANDROID_SOURCES ${SDL2_SOURCE_DIR}/src/video/android/*.c)
+    set(SOURCE_FILES ${SOURCE_FILES} ${VIDEO_ANDROID_SOURCES})
+    set(HAVE_SDL_VIDEO TRUE)
+  endif()
+
 elseif(WINDOWS)
   find_program(WINDRES windres)
 
